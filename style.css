@@ -2,3 +2,12 @@ body {
     background-color: #212226;
     margin: 0;
 }
+h1 {
+    font-size: 80px;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    color: #F27405;
+}
