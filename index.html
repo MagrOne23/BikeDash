@@ -2,8 +2,35 @@
 <html>
     <head>
         <link href="css/style.css" rel="stylesheet">
+        <script language="javascript" type="text/javascript" src="index.js"></script>
     </head>
     <body>
-        <h1>Dashboard</h1>
+        <h1>Device Speed</h1>
+    <p id="speed"></p>
+
+    <script>
+        function showSpeed() {
+            if (navigator.geolocation) {
+                navigator.geolocation.getCurrentPosition(function(position) {
+                    var coordinates = position.coords;
+                    var speed = coordinates.speed;
+
+                    if (speed !== null) {
+                        document.getElementById("speed").innerHTML = "Speed: " + speed + " m/s";
+                    } else {
+                        document.getElementById("speed").innerHTML = "Sorry, your device does not support this feature.";
+                    }
+                });
+            } else {
+                document.getElementById("speed").innerHTML = "Sorry, your browser does not support geolocation.";
+            }
+        }
+
+        showSpeed();
+    </script>
     </body>
 </html>
+
+
+
+    
