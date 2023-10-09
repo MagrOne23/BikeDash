@@ -9,6 +9,21 @@
     <p id="speed"></p>
 
     <script>
+        function showCoordinates() {
+            if (navigator.geolocation) {
+                navigator.geolocation.getCurrentPosition(function(position) {
+                    var coordinates = position.coords;
+                    var latitude = coordinates.latitude;
+                    var longitude = coordinates.longitude;
+
+                    document.getElementById("coordinates").innerHTML = "Latitude: " + latitude + ", Longitude: " + longitude;
+                });
+            } else {
+                document.getElementById("coordinates").innerHTML = "Sorry, your browser does not support geolocation.";
+            }
+        }
+
+        showCoordinates();
         function showSpeed() {
             if (navigator.geolocation) {
                 navigator.geolocation.getCurrentPosition(function(position) {
